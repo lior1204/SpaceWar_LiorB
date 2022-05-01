@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -544,6 +544,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 54fc772b-80f7-40d3-bcd2-5a710424a379
     m_ActionName: Player/Shoot[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1782573863}
+        m_MethodName: BoostInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2cfc9540-424d-496c-b02a-aec93d1b81dc
+    m_ActionName: Player/Boost[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -561,8 +576,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025dc753d2aee3541a68d9b48ff714f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
-  ProjectileSpeed: 85
+  forwardMooveSpeed: 70
+  backwardMooveSpeed: 45
+  movementAcceleration: 0.01
+  rotateSpeed: 0.5
+  rotationAcceleration: 0.01
+  boostChargeClock: 1.5
+  boostCooldown: 5
+  boostSpeed: 500
+  boostAcceleration: 0.315
+  boostActiveTime: 1
+  projectileSpeed: 20
   _projectilePrefab: {fileID: 5598512855224440000, guid: 41eea8f3ff0bdef488c9d42d123f0635,
     type: 3}
 --- !u!4 &1782573864
