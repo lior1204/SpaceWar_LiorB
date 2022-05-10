@@ -520,6 +520,7 @@ GameObject:
   - component: {fileID: 1588729742}
   - component: {fileID: 1588729741}
   - component: {fileID: 1588729745}
+  - component: {fileID: 1588729746}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Barricade
@@ -558,7 +559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 729439183f168ee4e91685d2a2f51ad5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -617,6 +618,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1588729746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588729740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c6b0e6826e487408405212b24ecb15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1782573861
 GameObject:
   m_ObjectHideFlags: 0
