@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     //references
     [Space(2)][Header("References")]
     [SerializeField] Projectile _projectilePrefab;
-
+    private Rigidbody rb;
 
     //state
     private Vector2 movementInput;
@@ -43,6 +43,10 @@ public class Player : MonoBehaviour
     private float boostCooldownTimer = 0;
 
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         Movement();
@@ -75,9 +79,10 @@ public class Player : MonoBehaviour
                 targetSpeed = (movementInput.y > 0 ? forwardMooveSpeed : backwardMooveSpeed) * Mathf.Sign(movementInput.y);
             }
             else targetSpeed = 0;
-            currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, rotationAcceleration);
+            currentSpeed = Mathf.Lerp(Mathf.Sign(currentSpeed)* rb.velocity.magnitude, targetSpeed, movementAcceleration);
         }
-        transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);//move
+        rb.velocity = transform.forward * currentSpeed;
+
     }
     private void ChargeBoost()
     {

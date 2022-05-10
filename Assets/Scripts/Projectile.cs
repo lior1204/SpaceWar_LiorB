@@ -20,4 +20,8 @@ public class Projectile : MonoBehaviour
         p.GetComponent<Rigidbody>().velocity =dir.normalized*speed;
         return p;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
 }
