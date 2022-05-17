@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float tiltMax = 30f;
 
     [SerializeField] private float boostChargeClock = 1.3f;
-    [SerializeField] private float boostCooldown = 5f;
+    [SerializeField] private float boostCooldownClock = 5f;
     [SerializeField] private float boostSpeed = 150f;
     [SerializeField] [Range(0.05f, 0.5f)] private float boostAcceleration = 0.1f;
     [SerializeField] private float boostActiveTime= 2f;
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     private bool boostPressed=false;
     private float boostChargeTimer = 0;
     private bool isBoost = false;
+    public bool IsBoost { get { return isBoost; }private set { isBoost = value; } }
     private float boostCooldownTimer = 0;
 
     private bool isShooting=false;
@@ -92,15 +93,13 @@ public class Player : MonoBehaviour
             else
                 tilt = 0;
         }
-        else if(currTilt <= 180)
+        else if (currTilt < 0.7f || currTilt > 359.3f)
         {
-            tilt = -tiltSpeed;
+            transform.eulerAngles= new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
+            tilt = 0;
         }
-        else
-        {
-            tilt = tiltSpeed;
-        }
-        transform.Rotate(0,currentRotation, tilt);//rotate
+        else tilt = currTilt <= 180 ? -tiltSpeed : tiltSpeed;
+        transform.eulerAngles += new Vector3(0, currentRotation, tilt);
 
         //accelerate speed
         if (isBoost)
@@ -122,22 +121,29 @@ public class Player : MonoBehaviour
     }
     private void ChargeBoost()
     {
-        if (boostCooldownTimer < boostCooldown) boostCooldownTimer += Time.deltaTime;
-        if (boostPressed&&!isBoost&& boostCooldownTimer > boostCooldown) boostChargeTimer += Time.deltaTime;
+        if (boostCooldownTimer < boostCooldownClock) boostCooldownTimer += Time.deltaTime;
+        if (boostPressed&&!isBoost&& boostCooldownTimer >= boostCooldownClock) boostChargeTimer += Time.deltaTime;
         else boostChargeTimer = 0;
         if (boostChargeTimer >= boostChargeClock)
         {
             isBoost = true;
+            boostCooldownTimer = 0;
             Invoke("TurnoffBoost", boostActiveTime);
         }
     }
     private void TurnoffBoost()
     {
         boostChargeTimer = 0; 
-        boostCooldownTimer = 0;
         isBoost = false;
     }
-
+    public float GetBoostCharge()
+    {
+        return boostChargeTimer / boostChargeClock;
+    } 
+    public float GetBoostCooldown()
+    {
+        return 1-(boostCooldownTimer / boostCooldownClock);
+    }
     //Input Methods 
     public void MovementInput(InputAction.CallbackContext context)
     {
