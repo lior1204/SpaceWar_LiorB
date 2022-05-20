@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
 
     private void BoostCharge()
     {
-        Debug.Log(_player.GetBoostCooldown());
         if (_player.GetBoostCooldown()>0)
         {
             boostChargeCooldown.enabled = true;
