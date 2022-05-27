@@ -773,6 +773,8 @@ GameObject:
   - component: {fileID: 1588729741}
   - component: {fileID: 1588729745}
   - component: {fileID: 1588729746}
+  - component: {fileID: 1588729747}
+  - component: {fileID: 1588729748}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Barricade
@@ -880,6 +882,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13c6b0e6826e487408405212b24ecb15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1588729747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588729740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eb72e5a2a91aa45b46e9d81473dc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1588729748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588729740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1950d30fc5665e24f9aecbf7e6ba9fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1782573861
